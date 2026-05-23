@@ -39,10 +39,7 @@
 
     main { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
 
-    .page-title {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+    .page-title { text-align: center; margin-bottom: 40px; }
 
     .page-title h2 {
       font-size: 32px;
@@ -73,11 +70,7 @@
     .analyze-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px #3b82f660; }
     .analyze-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 
-    .loading {
-      text-align: center;
-      padding: 60px;
-      display: none;
-    }
+    .loading { text-align: center; padding: 60px; display: none; }
 
     .spinner {
       width: 48px;
@@ -90,7 +83,6 @@
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
-
     .loading p { color: #64748b; font-size: 15px; }
 
     .results-grid {
@@ -109,22 +101,44 @@
     }
 
     .doc-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px #00000040; }
-
     .doc-card.valid { border-color: #16a34a44; }
     .doc-card.invalid { border-color: #dc262644; }
 
+    /* Image area — clickable */
     .doc-image-wrap {
       position: relative;
       background: #0f172a;
       height: 200px;
       overflow: hidden;
+      cursor: zoom-in;
     }
 
     .doc-image-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.3s;
     }
+
+    .doc-image-wrap:hover img { transform: scale(1.04); }
+
+    .zoom-hint {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #00000088;
+      color: #e2e8f0;
+      font-size: 11px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .doc-image-wrap:hover .zoom-hint { opacity: 1; }
 
     .doc-image-placeholder {
       width: 100%;
@@ -150,6 +164,20 @@
     .verdict-badge.valid { background: #16a34a; color: white; }
     .verdict-badge.invalid { background: #dc2626; color: white; }
 
+    /* Sample watermark notice badge */
+    .sample-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      background: #f59e0b;
+      color: #000;
+      letter-spacing: 0.3px;
+    }
+
     .confidence-bar-wrap {
       position: absolute;
       bottom: 0;
@@ -159,11 +187,7 @@
       background: #0f172a;
     }
 
-    .confidence-bar {
-      height: 100%;
-      transition: width 0.8s ease;
-    }
-
+    .confidence-bar { height: 100%; transition: width 0.8s ease; }
     .confidence-bar.high { background: #22c55e; }
     .confidence-bar.medium { background: #f59e0b; }
     .confidence-bar.low { background: #ef4444; }
@@ -180,15 +204,27 @@
     .doc-label { font-size: 15px; font-weight: 600; color: #f1f5f9; }
     .doc-type { font-size: 12px; color: #64748b; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
 
-    .confidence-text {
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
+    .confidence-text { font-size: 24px; font-weight: 800; line-height: 1; }
     .confidence-text.high { color: #22c55e; }
     .confidence-text.medium { color: #f59e0b; }
     .confidence-text.low { color: #ef4444; }
+
+    /* Sample notice banner */
+    .sample-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: #78350f22;
+      border: 1px solid #f59e0b44;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #fcd34d;
+      line-height: 1.5;
+    }
+
+    .sample-notice-icon { flex-shrink: 0; font-size: 14px; }
 
     .summary {
       font-size: 13px;
@@ -212,17 +248,10 @@
 
     .checks-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
 
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      font-size: 13px;
-    }
-
+    .check-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; }
     .check-icon { flex-shrink: 0; margin-top: 1px; }
     .check-icon.pass { color: #22c55e; }
     .check-icon.fail { color: #ef4444; }
-
     .check-name { color: #cbd5e1; font-weight: 500; }
     .check-note { color: #64748b; font-size: 12px; }
 
@@ -239,13 +268,7 @@
 
     .issues-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
 
-    .issue-item {
-      font-size: 12px;
-      color: #fca5a5;
-      display: flex;
-      gap: 6px;
-    }
-
+    .issue-item { font-size: 12px; color: #fca5a5; display: flex; gap: 6px; }
     .issue-item::before { content: '⚠'; flex-shrink: 0; }
 
     .extracted-info { margin-top: 16px; }
@@ -260,7 +283,6 @@
     }
 
     .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-
     .info-item { background: #0f172a; border-radius: 6px; padding: 6px 10px; }
     .info-key { font-size: 10px; color: #475569; text-transform: uppercase; letter-spacing: 0.3px; }
     .info-val { font-size: 13px; color: #cbd5e1; font-weight: 500; margin-top: 1px; }
@@ -273,37 +295,15 @@
       margin-top: 8px;
     }
 
-    .summary-section h3 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #f1f5f9;
-      margin-bottom: 20px;
-    }
+    .summary-section h3 { font-size: 18px; font-weight: 700; color: #f1f5f9; margin-bottom: 20px; }
 
-    .summary-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
+    .summary-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-    .stat-box {
-      background: #0f172a;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-size: 36px;
-      font-weight: 800;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
+    .stat-box { background: #0f172a; border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-num { font-size: 36px; font-weight: 800; line-height: 1; margin-bottom: 6px; }
     .stat-num.green { color: #22c55e; }
     .stat-num.red { color: #ef4444; }
     .stat-num.blue { color: #60a5fa; }
-
     .stat-label { font-size: 13px; color: #64748b; }
 
     .error-msg {
@@ -316,14 +316,78 @@
       display: none;
     }
 
-    .initial-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: #475569;
-    }
-
+    .initial-state { text-align: center; padding: 60px 20px; color: #475569; }
     .initial-state .icon { font-size: 64px; margin-bottom: 16px; }
     .initial-state p { font-size: 15px; }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000000cc;
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lightbox-inner img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px #00000080;
+    }
+
+    .lightbox-caption {
+      color: #cbd5e1;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 28px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      transition: color 0.15s;
+    }
+
+    .lightbox-close:hover { color: white; }
+
+    /* Sample warning in lightbox */
+    .lightbox-sample-warning {
+      background: #78350f;
+      border: 1px solid #f59e0b;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      color: #fcd34d;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -364,7 +428,37 @@
   </div>
 </main>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner" id="lightboxInner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="" />
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+    <div class="lightbox-sample-warning" id="lightboxWarning" style="display:none">
+      ⚠️ This document contains a <strong>"SAMPLE DOCUMENT"</strong> watermark. It is a test fixture generated for demo purposes and is not a real admission letter.
+    </div>
+  </div>
+</div>
+
 <script>
+// ── Lightbox ──
+function openLightbox(src, caption, hasSampleWatermark) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxCaption').textContent = caption;
+  document.getElementById('lightboxWarning').style.display = hasSampleWatermark ? 'flex' : 'none';
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lightbox-close')) return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({ target: document.getElementById('lightbox') }); });
+
+// ── Analysis ──
 async function runAnalysis() {
   const btn = document.getElementById('analyzeBtn');
   const loading = document.getElementById('loading');
@@ -381,9 +475,7 @@ async function runAnalysis() {
   try {
     const res = await fetch('/api/analyze');
     const data = await res.json();
-
     if (!data.success) throw new Error(data.error || 'Analysis failed');
-
     renderResults(data.results);
     loading.style.display = 'none';
     resultsContainer.style.display = 'block';
@@ -396,17 +488,19 @@ async function runAnalysis() {
   }
 }
 
-function getConfidenceClass(confidence) {
-  if (confidence >= 70) return 'high';
-  if (confidence >= 40) return 'medium';
-  return 'low';
+function getConfidenceClass(c) {
+  return c >= 70 ? 'high' : c >= 40 ? 'medium' : 'low';
 }
 
 function formatCheckName(key) {
-  return key
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/^./, s => s.toUpperCase())
-    .replace('No Suspicious Elements', 'No Suspicious Elements');
+  return key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase());
+}
+
+// Filenames that contain a visible SAMPLE watermark
+const SAMPLE_WATERMARK_DOCS = new Set(['doc2_admission.png', 'doc3_fake_admission.png']);
+
+function hasSampleWatermark(filename) {
+  return SAMPLE_WATERMARK_DOCS.has(filename);
 }
 
 function renderResults(results) {
@@ -420,6 +514,8 @@ function renderResults(results) {
     const checks = doc.checks || {};
     const issues = doc.issues || [];
     const extracted = doc.extractedInfo || {};
+    const imgSrc = `/documents/${doc.filename}`;
+    const isSample = hasSampleWatermark(doc.filename);
 
     const checksHtml = Object.entries(checks).map(([key, val]) => `
       <li class="check-item">
@@ -455,16 +551,25 @@ function renderResults(results) {
       </div>
     ` : '';
 
+    const sampleNoticeHtml = isSample ? `
+      <div class="sample-notice">
+        <span class="sample-notice-icon">⚠️</span>
+        <span>This image contains a <strong>"SAMPLE DOCUMENT"</strong> watermark — it is a test fixture for demo purposes, not a real admission letter.</span>
+      </div>
+    ` : '';
+
     const card = document.createElement('div');
     card.className = `doc-card ${isValid ? 'valid' : 'invalid'}`;
     card.innerHTML = `
-      <div class="doc-image-wrap">
-        <img src="/documents/${doc.filename}" alt="${doc.label}"
+      <div class="doc-image-wrap" onclick="openLightbox('${imgSrc}', '${doc.label}', ${isSample})">
+        <img src="${imgSrc}" alt="${doc.label}"
              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
         <div class="doc-image-placeholder" style="display:none">📄 ${doc.filename}</div>
+        ${isSample ? '<div class="sample-badge">SAMPLE</div>' : ''}
         <div class="verdict-badge ${isValid ? 'valid' : 'invalid'}">
           ${isValid ? '✓ VALID' : '✗ INVALID'}
         </div>
+        <div class="zoom-hint">🔍 Click to enlarge</div>
         <div class="confidence-bar-wrap">
           <div class="confidence-bar ${confClass}" style="width: ${confidence}%"></div>
         </div>
@@ -477,6 +582,7 @@ function renderResults(results) {
           </div>
           <div class="confidence-text ${confClass}">${confidence}%</div>
         </div>
+        ${sampleNoticeHtml}
         <div class="summary">${doc.summary || 'No summary available'}</div>
         ${Object.keys(checks).length > 0 ? `
           <div class="checks-title">Validation Checks</div>
