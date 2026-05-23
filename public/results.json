@@ -1,0 +1,95 @@
+{
+  "success": true,
+  "results": [
+    {
+      "id": "doc1",
+      "filename": "doc1_admission.png",
+      "type": "admission",
+      "label": "Hangang National University - Emily Johnson",
+      "expectedValid": true,
+      "isValid": true,
+      "confidence": 100,
+      "summary": "The document is a highly professional, well-structured, and complete Certificate of Admission containing all required fields and verification features.",
+      "checks": {
+        "documentStructure": { "passed": true, "note": "Standard official letter format is followed, featuring an institution letterhead, structured body, complete signature block, and official contact information." },
+        "programPeriodValidity": { "passed": true, "note": "The exchange program period is logically valid, starting on September 1, 2024 and ending on June 30, 2025." },
+        "dateConsistency": { "passed": true, "note": "All dates are properly formatted, chronologically consistent, and the issue date (2024-05-15) is realistic." },
+        "documentFormatting": { "passed": true, "note": "The document displays highly professional design, alignment, consistent typography, and clean graphical elements." },
+        "officialSealSignature": { "passed": true, "note": "Contains a clear signature of the Director of the International Office and the official Hangang National University institutional seal." },
+        "requiredFields": { "passed": true, "note": "All mandatory fields including student name, ID, program dates, department, and contact details are fully present." },
+        "noFraudIndicators": { "passed": true, "note": "No signs of manipulation, visual inconsistencies, impossible dates, or fraudulent domains are present." }
+      },
+      "issues": [],
+      "extractedInfo": {
+        "studentName": "Emily Johnson",
+        "institution": "Hangang National University",
+        "programPeriod": "September 1, 2024 to June 30, 2025",
+        "issueDate": "2024-05-15"
+      },
+      "analyzedAt": "2026-05-22T07:50:00.000Z"
+    },
+    {
+      "id": "doc2",
+      "filename": "doc2_admission.png",
+      "type": "admission",
+      "label": "Donggang International University - Lucas Müller",
+      "expectedValid": true,
+      "isValid": true,
+      "confidence": 100,
+      "summary": "The document successfully passes all structural, formatting, validity, and consistency checks.",
+      "checks": {
+        "documentStructure": { "passed": true, "note": "The document contains a clear letterhead, structured data table, official body text, signature block, and official seal." },
+        "programPeriodValidity": { "passed": true, "note": "The exchange program period (March 2, 2025 to December 19, 2025) is logically sound, with the start date preceding the end date." },
+        "dateConsistency": { "passed": true, "note": "All dates are consistently formatted and valid. The issue date (2024-09-20) is reasonably set prior to the program start in 2025." },
+        "documentFormatting": { "passed": true, "note": "The letter maintains a highly professional layout, consistent typography, and proper alignment." },
+        "officialSealSignature": { "passed": true, "note": "The document features both a signature from Prof. Park Soo-yeon and the official stamp/seal of Donggang International University." },
+        "requiredFields": { "passed": true, "note": "All necessary fields including Student Name, ID, Home University, Program Dates, Department, and Contact Location are present." },
+        "noFraudIndicators": { "passed": true, "note": "No signs of fraud, spelling errors in key fields, logical date conflicts, or unprofessional language were found." }
+      },
+      "issues": [],
+      "extractedInfo": {
+        "studentName": "Lucas Müller",
+        "institution": "Donggang International University",
+        "programPeriod": "March 2, 2025 to December 19, 2025",
+        "issueDate": "2024-09-20"
+      },
+      "analyzedAt": "2026-05-22T07:50:00.000Z"
+    },
+    {
+      "id": "doc3",
+      "filename": "doc3_fake_admission.png",
+      "type": "admission",
+      "label": "Admission Letter - James Kim (Suspicious)",
+      "expectedValid": false,
+      "isValid": false,
+      "confidence": 100,
+      "summary": "The document is invalid due to multiple severe fraud indicators, including impossible dates, inverted program dates, an astronomical scholarship amount, fake credentials, and a fake email domain.",
+      "checks": {
+        "documentStructure": { "passed": true, "note": "The document follows the general structure of an official letter, including a letterhead, body, signature block, and contact information footer." },
+        "programPeriodValidity": { "passed": false, "note": "The program end date (2022-12-31) is before the program start date (2023-01-01)." },
+        "dateConsistency": { "passed": false, "note": "The issue date '2026-15-45' is invalid (month 15 and day 45 do not exist) and is set beyond the year 2025." },
+        "documentFormatting": { "passed": false, "note": "The document contains multiple spelling errors ('aprooved', 'Congratlation!') and highly unprofessional body text phrasing ('maybe in spam folder')." },
+        "officialSealSignature": { "passed": true, "note": "A signature and seal are physically present on the document, though the content of the seal is highly suspicious." },
+        "requiredFields": { "passed": true, "note": "Key fields such as student name, ID, program dates, and contact details are present." },
+        "noFraudIndicators": { "passed": false, "note": "Multiple major fraud indicators detected: impossible issue date, inverted program dates, absurdly high scholarship amount (999,999,999 KRW), joke academic credentials (Ph,D,D,D,D), and a fake email TLD (.fake)." }
+      },
+      "issues": [
+        "Program end date (2022-12-31) precedes the start date (2023-01-01).",
+        "Invalid issue date '2026-15-45' (invalid month/day and beyond 2025 limit).",
+        "Absurd scholarship amount of 999,999,999 KRW, which far exceeds standard limits.",
+        "Joke credentials listed for the signer: 'Ph,D,D,D,D,MBA'.",
+        "Email contact address uses a fake top-level domain: 'info@kieuniv.fake'.",
+        "Spelling errors in key text ('aprooved', 'Congratlation!').",
+        "Unprofessional parenthetical text in the official body: '(maybe in spam folder)'.",
+        "The official seal contains unprofessional/redundant text: 'CERTIFIED AUTHENTIC REAL UNIVERSITY'."
+      ],
+      "extractedInfo": {
+        "studentName": "James Kim",
+        "institution": "Korea International Excellence University",
+        "programPeriod": "2023-01-01 to 2022-12-31",
+        "issueDate": "2026-15-45"
+      },
+      "analyzedAt": "2026-05-22T07:50:00.000Z"
+    }
+  ]
+}
