@@ -497,10 +497,8 @@ function formatCheckName(key) {
 }
 
 // Filenames that contain a visible SAMPLE watermark
-const SAMPLE_WATERMARK_DOCS = new Set(['doc2_admission.png', 'doc3_fake_admission.png']);
-
-function hasSampleWatermark(filename) {
-  return SAMPLE_WATERMARK_DOCS.has(filename);
+function hasSampleWatermark(doc) {
+  return doc.checks?.noWatermark?.passed === false;
 }
 
 function renderResults(results) {
@@ -515,7 +513,7 @@ function renderResults(results) {
     const issues = doc.issues || [];
     const extracted = doc.extractedInfo || {};
     const imgSrc = `/documents/${doc.filename}`;
-    const isSample = hasSampleWatermark(doc.filename);
+    const isSample = hasSampleWatermark(doc);
 
     const checksHtml = Object.entries(checks).map(([key, val]) => `
       <li class="check-item">
