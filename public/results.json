@@ -9,35 +9,39 @@
             "expectedValid": true,
             "isValid": true,
             "confidence": 100,
-            "summary": "The Certificate of Admission is authentic in structure, well-formatted, contains all required fields, valid dates, and official signatures/seals with no indicators of fraud.",
+            "summary": "The Certificate of Admission is structurally sound, contains all required fields, has logical date ranges, features professional formatting, and lacks any fraud indicators or watermark overlays.",
             "checks": {
                 "documentStructure": {
                     "passed": true,
-                    "note": "The document contains a clear letterhead, organized body content, a signature block with contact details, and professional visual layout."
+                    "note": "The document contains a clear letterhead, organized body sections, a formal signature block, and official institutional contact details."
                 },
                 "programPeriodValidity": {
                     "passed": true,
-                    "note": "The program period starts on September 1, 2024, and ends on June 30, 2025, which is chronologically logical."
+                    "note": "The program duration (September 1, 2024 to June 30, 2025) has a start date that logically precedes the end date."
                 },
                 "dateConsistency": {
                     "passed": true,
-                    "note": "All dates (issue date, orientation date, and program duration) are correctly and consistently formatted, with no unrealistic future dates."
+                    "note": "All dates (issue date 2024-05-15, orientation August 28, 2024, and program dates) are logically sequential and valid."
                 },
                 "documentFormatting": {
                     "passed": true,
-                    "note": "Consistent typography, clean borders, professional iconography, and proper alignment are observed throughout the document."
+                    "note": "The document features a highly professional, well-aligned, and visually consistent layout with appropriate typography and iconography."
                 },
                 "officialSealSignature": {
                     "passed": true,
-                    "note": "Includes both the signature of the Director of the International Office and the Hangang National University seal."
+                    "note": "Both a signature for 'Dr. Kim Joon-ho' and an official university seal ('Hangang National University') are present."
                 },
                 "requiredFields": {
                     "passed": true,
-                    "note": "Student Name, ID, program dates, department, and official contact email (international@hnu.ac.kr) are all clearly listed."
+                    "note": "All mandatory details are present: Student Name, Student ID, Program/Department, Dates, and contact email (international@hnu.ac.kr)."
                 },
                 "noFraudIndicators": {
                     "passed": true,
-                    "note": "No signs of tampering, impossible dates, joke credentials, or spelling errors in critical fields were identified."
+                    "note": "No signs of fraud detected. Formatting, spelling, email TLD (.ac.kr), and credentials are all professional and realistic."
+                },
+                "noWatermark": {
+                    "passed": true,
+                    "note": "No watermark detected."
                 }
             },
             "issues": [],
@@ -47,7 +51,7 @@
                 "programPeriod": "September 1, 2024 to June 30, 2025",
                 "issueDate": "2024-05-15"
             },
-            "analyzedAt": "2026-05-23T01:39:33.356Z"
+            "analyzedAt": "2026-05-23T01:43:27.069Z"
         },
         {
             "id": "doc2",
@@ -57,35 +61,39 @@
             "expectedValid": true,
             "isValid": true,
             "confidence": 100,
-            "summary": "The exchange student acceptance letter meets all structural, formatting, and date consistency requirements with no indicators of fraud.",
+            "summary": "The document is a valid and professionally structured Exchange Student Official Letter of Acceptance with all required fields, valid dates, and official authorization markings.",
             "checks": {
                 "documentStructure": {
                     "passed": true,
-                    "note": "The document contains a clear letterhead, reference number, metadata block, body, signature block, institutional seal, and footer."
+                    "note": "The document adheres to a standard official letter format, complete with a letterhead, structured details table, coherent body text, and a signature/seal block."
                 },
                 "programPeriodValidity": {
                     "passed": true,
-                    "note": "The program duration runs from March 2, 2025, to December 19, 2025, which is chronologically logical."
+                    "note": "The program period (March 2, 2025 to December 19, 2025) is logical and chronological."
                 },
                 "dateConsistency": {
                     "passed": true,
-                    "note": "The issue date is September 20, 2024, which precedes the program start date in March 2025 and is correctly formatted."
+                    "note": "The issue date (2024-09-20) is properly formatted and logically precedes the program's starting date in 2025."
                 },
                 "documentFormatting": {
                     "passed": true,
-                    "note": "High-quality document with consistent font usage, proper alignment, professional table borders, and clear layout."
+                    "note": "The layout is highly professional, featuring consistent alignment, clean table borders, matching font families, and appropriate spacing."
                 },
                 "officialSealSignature": {
                     "passed": true,
-                    "note": "Contains both a realistic signature from 'Prof. Park Soo-yeon' and the Donggang International University institutional seal."
+                    "note": "The document features a clear signature from Prof. Park Soo-yeon and an official blue institutional seal of Donggang International University."
                 },
                 "requiredFields": {
                     "passed": true,
-                    "note": "All necessary fields including student name, ID, home university, program dates, and hosting department are present."
+                    "note": "All necessary information, including the student's name, ID, home university, program department, duration, and contact details, is clearly present."
                 },
                 "noFraudIndicators": {
                     "passed": true,
-                    "note": "No spelling errors, impossible dates, joke credentials, or unprofessional formatting elements were detected."
+                    "note": "No spelling errors, illogical dates, unprofessional language, or other common indicators of fraud were detected."
+                },
+                "noWatermark": {
+                    "passed": true,
+                    "note": "No watermark detected"
                 }
             },
             "issues": [],
@@ -95,7 +103,7 @@
                 "programPeriod": "March 2 2025 to December 19 2025",
                 "issueDate": "2024-09-20"
             },
-            "analyzedAt": "2026-05-23T01:39:36.888Z"
+            "analyzedAt": "2026-05-23T01:43:21.012Z"
         },
         {
             "id": "doc3",
@@ -105,46 +113,50 @@
             "expectedValid": false,
             "isValid": false,
             "confidence": 100,
-            "summary": "The document is invalid due to multiple critical fraud indicators, including impossible dates, an illogical program period, joke academic credentials, and highly suspicious email/seal details.",
+            "summary": "The document is invalid due to a highly visible 'SAMPLE DOCUMENT' watermark, severe date anomalies, reversed program timeline, joke credentials, and unrealistic scholarship figures.",
             "checks": {
                 "documentStructure": {
-                    "passed": true,
-                    "note": "The letter follows a basic standard structure containing a letterhead, body text, table of student details, signature, and footer contact block."
+                    "passed": false,
+                    "note": "While the overall layout resembles a letter, it contains highly unprofessional phrasing ('maybe in spam folder', 'No need to contact office') that violates official letter standards."
                 },
                 "programPeriodValidity": {
                     "passed": false,
-                    "note": "The program end date (2022-12-31) is before the program start date (2023-01-01)."
+                    "note": "The program end date (2022-12-31) is set before the program start date (2023-01-01)."
                 },
                 "dateConsistency": {
                     "passed": false,
-                    "note": "The issue date '2026-15-45' is completely invalid, utilizing an impossible month (15) and day (45), and is set in the future."
+                    "note": "The issue date '2026-15-45' uses an impossible month (15), an impossible day (45), and is set in the future."
                 },
                 "documentFormatting": {
                     "passed": false,
-                    "note": "The document contains obvious spelling errors ('aprooved', 'Congratlation!') and highly unprofessional phrasing ('maybe in spam folder', 'No need to contact office')."
+                    "note": "The document contains glaring spelling mistakes ('aprooved', 'Congratlation!') and features a highly unprofessional verification stamp ('CERTIFIED AUTHENTIC REAL UNIVERSITY')."
                 },
                 "officialSealSignature": {
-                    "passed": false,
-                    "note": "A signature and seal are present, but the seal contains highly suspicious/unprofessional text: 'CERTIFIED AUTHENTIC REAL UNIVERSITY'."
+                    "passed": true,
+                    "note": "A signature and seal are present, though the seal design and text are satirical."
                 },
                 "requiredFields": {
                     "passed": true,
-                    "note": "Key fields such as student name, ID, program dates, and contact information are physically present."
+                    "note": "Student details, program dates, and contact information are physically present on the document."
                 },
                 "noFraudIndicators": {
                     "passed": false,
-                    "note": "Multiple critical fraud indicators detected: impossible dates, logical chronological errors in dates, an absurd scholarship amount (999,999,999 KRW), joke credentials ('Ph,D,D,D,D'), and a fake email TLD ('.fake')."
+                    "note": "Multiple major fraud indicators detected: impossible dates (month 15, day 45), reversed program period, absurd scholarship amount (999,999,999 KRW), joke degree credentials ('Ph,D,D,D,D,MBA'), and a fake top-level domain email ('info@kieuniv.fake')."
+                },
+                "noWatermark": {
+                    "passed": false,
+                    "note": "Large diagonal watermark 'SAMPLE DOCUMENT' is displayed across the entire letter body."
                 }
             },
             "issues": [
-                "Program end date (2022-12-31) is before the start date (2023-01-01).",
-                "The issue date '2026-15-45' contains invalid month (15) and day (45) values.",
-                "The email address 'info@kieuniv.fake' uses an invalid top-level domain (.fake).",
-                "Spelling errors in key official text: 'aprooved' instead of 'approved' and 'Congratlation!' instead of 'Congratulations!'.",
-                "Absurd scholarship amount of 999,999,999 KRW.",
-                "Joke academic credentials listed for the signatory: 'Ph,D,D,D,D,MBA'.",
-                "Highly unprofessional language ('maybe in spam folder' and 'No need to contact office').",
-                "The official seal contains mocking text: 'CERTIFIED AUTHENTIC REAL UNIVERSITY'."
+                "A prominent watermark reading 'SAMPLE DOCUMENT' is present.",
+                "Program end date (2022-12-31) precedes start date (2023-01-01).",
+                "Impossible issue date: '2026-15-45'.",
+                "Unrealistically high scholarship amount of 999,999,999 KRW.",
+                "Joke credentials listed for the signatory: 'Ph,D,D,D,D,MBA'.",
+                "Fake email address with a '.fake' top-level domain.",
+                "Highly unprofessional language: '(maybe in spam folder)' and 'No need to contact office'.",
+                "Spelling errors in core message: 'aprooved' and 'Congratlation!'."
             ],
             "extractedInfo": {
                 "studentName": "James Kim",
@@ -152,7 +164,7 @@
                 "programPeriod": "2023-01-01 to 2022-12-31",
                 "issueDate": "2026-15-45"
             },
-            "analyzedAt": "2026-05-23T01:39:38.856Z"
+            "analyzedAt": "2026-05-23T01:43:30.099Z"
         }
     ]
 }
